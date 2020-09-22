@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="file" fileName="./logs/all.log" filePattern="./logs/all.%i.%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Policies />
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <root level="TRACE" additivity="false" >
+            <appender-ref ref="console" />
+            <appender-ref ref="file" />
+        </root>
+    </loggers>
+</configuration>
+

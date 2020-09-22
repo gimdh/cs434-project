@@ -5,7 +5,12 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs434-project.iml" filepath="$PROJECT_DIR$/.idea/modules/cs434-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs434-project-build.iml" filepath="$PROJECT_DIR$/.idea/modules/cs434-project-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs434-project.common.iml" filepath="$PROJECT_DIR$/.idea/modules/cs434-project.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs434-project.master.iml" filepath="$PROJECT_DIR$/.idea/modules/cs434-project.master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs434-project.slave.iml" filepath="$PROJECT_DIR$/.idea/modules/cs434-project.slave.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/master.iml" filepath="$PROJECT_DIR$/.idea/modules/master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/project.iml" filepath="$PROJECT_DIR$/.idea/modules/project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/project-build.iml" filepath="$PROJECT_DIR$/.idea/modules/project-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/slave.iml" filepath="$PROJECT_DIR$/.idea/modules/slave.iml" />
     </modules>
   </component>

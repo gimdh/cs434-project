@@ -1,6 +1,9 @@
-name := "cs434-project"
+name := "project"
+organization := "com.gimdh"
 version := "0.1"
 scalaVersion := "2.13.3"
+
+ThisBuild / useCoursier := false
 
 lazy val global = project
   .in(file("."))

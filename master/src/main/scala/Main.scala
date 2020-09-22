@@ -1,5 +1,7 @@
-object Main {
+import org.apache.logging.log4j.scala.Logging
+
+object Main extends Logging {
   def main(args: Array[String]): Unit = {
-    println("Alo!")
+    logger.info("Alo!")
   }
 }
