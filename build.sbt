@@ -12,16 +12,17 @@ lazy val root = project
     slave
   )
 
-lazy val common = project
+lazy val common: Project = project
   .in(file("common"))
 
-lazy val master = project
+
+lazy val master: Project = project
   .in(file("master"))
   .dependsOn(
     common
   )
 
-lazy val slave = project
+lazy val slave: Project = project
   .in(file("slave"))
   .dependsOn(
     common

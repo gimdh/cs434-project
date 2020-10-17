@@ -1,5 +1,6 @@
 package com.gimdh.project.master
 
+import akka.actor.typed.ActorSystem
 import org.apache.logging.log4j.scala.Logging
 
 import scala.sys.exit
