@@ -5,7 +5,7 @@ scalaVersion := "2.13.3"
 
 ThisBuild / useCoursier := false
 
-lazy val global = project
+lazy val root = project
   .in(file("."))
   .aggregate(
     common,

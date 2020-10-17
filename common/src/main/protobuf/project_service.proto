@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.gimdh.project.common.rpc";
+option java_outer_classname = "ProjectProto";
+
+service ProjectService {
+  rpc SendSampleMean(SampleMean) returns (ACK) {}
+}
+
+message SampleMean {
+  uint32 sample_mean = 1;
+}
+
+message ACK {
+}
