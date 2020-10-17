@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="common,cs434-project,cs434-project.common,cs434-project.master,cs434-project.slave,global,master,project,root,slave" />
+    <profile name="sbt 1" modules="IdeaProjects.cs434-project.common,IdeaProjects.cs434-project.master,IdeaProjects.cs434-project.slave,common,cs434-project,cs434-project.common,cs434-project.master,cs434-project.project,cs434-project.slave,global,master,project,root,slave" />
   </component>
 </project>

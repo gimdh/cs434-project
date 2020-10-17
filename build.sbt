@@ -1,9 +1,8 @@
 name := "project"
 organization := "com.gimdh"
 version := "0.1"
-scalaVersion := "2.13.3"
+scalaVersion := "2.13.2"
 
-ThisBuild / useCoursier := false
 
 lazy val root = project
   .in(file("."))

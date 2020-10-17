@@ -11,6 +11,7 @@ object Main extends Logging {
     logger.info("Starting master application.")
 
     if (args.size != 1) {
+      logger.error("Invalid argument has been given")
       println(usage)
       exit(-1)
     }

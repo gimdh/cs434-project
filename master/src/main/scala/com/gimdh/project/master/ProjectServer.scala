@@ -1,20 +1,12 @@
 package com.gimdh.project.master
 
+
 import akka.actor.typed.ActorSystem
-import akka.actor.typed.scaladsl._
 import akka.actor.typed.scaladsl.Behaviors
-import akka.http.scaladsl.ConnectionContext
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.HttpsConnectionContext
-import akka.http.scaladsl.model.HttpRequest
-import akka.http.scaladsl.model.HttpResponse
-import akka.http.scaladsl.model._
-import akka.pki.pem.DERPrivateKeyLoader
-import akka.pki.pem.PEMDecoder
+import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import com.gimdh.project.common.rpc.{ProjectServiceHandler, ProjectServiceImpl}
 import com.typesafe.config.ConfigFactory
-import javax.net.ssl.KeyManagerFactory
-import javax.net.ssl.SSLContext
 import org.apache.logging.log4j.scala.Logging
 
 import scala.concurrent.ExecutionContext
@@ -36,19 +28,17 @@ object ProjectServer {
 class ProjectServer(system: ActorSystem[_]) extends Logging {
   def run(): Future[Http.ServerBinding] = {
     implicit val sys = system
-    implicit val ec = sys.executionContext
+    implicit val ec: ExecutionContext = sys.executionContext
 
     val service: HttpRequest => Future[HttpResponse] = {
       /* Use ServiceHandler.concatOrNotFound() for multiple services */
       ProjectServiceHandler(new ProjectServiceImpl(system))
     }
 
-    val bound: Future[Http.ServerBinding] = Http.get(system)
+    val bound: Future[Http.ServerBinding] = Http(system)
       .newServerAt(interface = "0.0.0.0", port = 18180)
-      .enableHttps(serverHttpContext)
       .bind(service)
       .map(_.addToCoordinatedShutdown(hardTerminationDeadline = 10.seconds))
-
 
     bound.onComplete {
       case Success(binding) =>

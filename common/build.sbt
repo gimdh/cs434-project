@@ -2,7 +2,7 @@
 enablePlugins(AkkaGrpcPlugin)
 
 
-lazy val akkaVersion = "2.6.9"
+lazy val akkaVersion = "2.6.10"
 lazy val akkaHttpVersion = "10.2.0"
 lazy val akkaGrpcVersion = "1.0.2"
 
