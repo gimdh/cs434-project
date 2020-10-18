@@ -15,7 +15,7 @@ import scala.reflect.runtime.universe.Try
 import scala.sys.exit
 
 object Main extends Logging {
-  val usage = "Usage: slave [\"master_ip_address:master_port_number\"]"
+  val usage = """Usage: slave [master_ip_address:master_port_number]"""
 
   def main(args: Array[String]): Unit = {
     implicit val sys: ActorSystem[_] = ActorSystem(Behaviors.empty, "ProjectClient")
@@ -32,14 +32,14 @@ object Main extends Logging {
 
     logger.info(s"Master is ${ipAddress}:${portNumber.toInt}")
 
-    val clientSettings = GrpcClientSettings.fromConfig("project_service.ProjectService")
+    val clientSettings = GrpcClientSettings.connectToServiceAt("127.0.0.1", 18182).withTls(false)
     logger.info("Created clientSettings")
 
     val client = ProjectServiceClient(clientSettings)
 
     logger.info("Created ProjectServiceClient")
 
-    val reply = client.sendSampleMean(SampleMean())
+    val reply = client.sendSampleMean(SampleMean(ip = InetAddress.getLocalHost.getHostAddress, sampleMean = 100))
     reply.recover { case e: Exception => logger.error(e.toString)}
   }
 
