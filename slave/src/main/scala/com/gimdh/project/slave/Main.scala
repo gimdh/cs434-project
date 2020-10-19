@@ -40,7 +40,10 @@ object Main extends Logging {
     logger.info("Created ProjectServiceClient")
 
     val reply = client.sendSampleMean(SampleMean(ip = InetAddress.getLocalHost.getHostAddress, sampleMean = 100))
-    reply.recover { case e: Exception => logger.error(e.toString)}
+    reply.onComplete{
+      case util.Success(i) => logger.info(s"Successfully sent sampling information and received ACK: ${i}")
+      case util.Failure(e) => logger.info(s"Failed to sent sampling information:${e.getMessage}")
+    }
   }
 
   def invalidArgument(): Unit = {
